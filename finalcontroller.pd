@@ -1,0 +1,259 @@
+#N struct 1004-point float x0 float y0 float xs float ys float fg float
+in float gridx float gridy;
+#N canvas -2 -27 1920 997 12;
+#X obj 321 166 hidio;
+#X obj 321 131 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#N canvas 406 213 450 300 remove 0;
+#X obj 134 12 inlet;
+#X obj 109 60 unpack symbol symbol float float;
+#X obj 110 107 pack symbol symbol float;
+#X obj 110 135 list trim;
+#X obj 116 196 outlet;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 1 1 2 1;
+#X connect 1 3 2 2;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X restore 321 211 pd remove instance numbers;
+#X obj 321 238 route button absolute;
+#X obj 468 393 float;
+#X obj 468 424 - 127;
+#X floatatom 468 448 5 0 0 0 - - - 0;
+#X floatatom 468 561 5 0 0 0 - - - 0;
+#X msg 521 542 0;
+#X obj 468 481 moses 5;
+#X obj 468 513 moses -5;
+#X obj 361 393 float;
+#X obj 592 336 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 592 356 metro 25;
+#X floatatom 361 441 5 0 0 0 - - - 0;
+#X floatatom 361 549 5 0 0 0 - - - 0;
+#X msg 414 530 0;
+#X obj 361 468 moses 5;
+#X obj 361 502 moses -5;
+#X obj 361 417 - 130;
+#X floatatom 393 306 5 0 0 0 - - - 0;
+#X floatatom 500 306 5 0 0 0 - - - 0;
+#X obj 361 632 +;
+#X floatatom 361 664 5 0 0 0 - - - 0;
+#X obj 468 632 +;
+#X floatatom 468 664 5 0 0 0 - - - 0;
+#X text 402 746 X;
+#X text 509 749 Y, f 6;
+#X obj 361 827 pack 0 0;
+#X obj 352 741 cnv 15 50 30 empty empty empty 20 12 0 14 #c4fcfc #404040
+0;
+#X floatatom 361 747 5 0 0 0 - - - 0;
+#X obj 460 742 cnv 15 50 30 empty empty empty 20 12 0 14 #c4fcfc #404040
+0;
+#X floatatom 468 749 5 0 0 0 - - - 0;
+#X obj 382 796 t b f;
+#X obj 361 688 moses -100;
+#X obj 360 716 moses 101;
+#X obj 468 690 moses 0;
+#X obj 468 715 moses 1001;
+#X obj 361 1391 unpack;
+#X floatatom 361 1441 5 0 0 0 - - - 0;
+#X floatatom 400 1423 5 0 0 0 - - - 0;
+#X obj 361 874 else/slider2d 200 500 -100 100 0 1000 1 255 255 255
+0 0 0 0 0 0 0 0 empty empty;
+#X obj 71 308 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 284 307 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 71 273 route button_1 button_2 button_3 button_4;
+#X obj 142 296 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 142 317 sel 1;
+#X obj 321 93 delay 1000;
+#X obj 213 615 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X msg 213 645 0;
+#X text 30 220 uses right buttons of controller (in order: square \,
+X \, circle \, triangle), f 35;
+#X text 138 341 X button activates movement, f 16;
+#X text 67 619 Circle button resets position in virtual space, f 18
+;
+#X text 167 1107 visual representation of the virtual sound space,
+f 26;
+#X obj 490 1547 oscformat;
+#X msg 681 1671 disconnect;
+#X obj 490 1703 netsend -u -b;
+#X obj 490 1575 list prepend send;
+#X obj 490 1600 list trim;
+#X obj 504 1638 loadbang;
+#X msg 752 1473 set cz \, \$1;
+#X msg 400 1480 set cy \, \$1;
+#X msg 361 1513 set cx \, \$1;
+#X msg 504 1671 connect 127.0.0.1 9999;
+#X obj 468 587 / -400;
+#X obj 361 572 / 500;
+#X text 590 1629 (The port we used for connection was 9999 \, but this
+can be changed accordingly), f 43;
+#X msg 70 144 devices;
+#X obj 393 271 route z rz x, f 31;
+#X floatatom 784 307 5 0 0 0 - - - 0;
+#X obj 752 392 float;
+#X floatatom 752 447 5 0 0 0 - - - 0;
+#X floatatom 752 560 5 0 0 0 - - - 0;
+#X msg 805 541 0;
+#X obj 752 480 moses 5;
+#X obj 752 512 moses -5;
+#X obj 752 423 - 130;
+#X obj 752 632 +;
+#X floatatom 752 664 5 0 0 0 - - - 0;
+#X obj 744 742 cnv 15 50 30 empty empty empty 20 12 0 14 #c4fcfc #404040
+0;
+#X floatatom 752 749 5 0 0 0 - - - 0;
+#X text 793 749 Z, f 6;
+#X obj 752 690 moses -360;
+#X obj 752 715 moses 361;
+#X text 545 788 The virtual sound space ranges are: X = -100 \, 100
+Y = 0 \, 1000 \, Z = -360 \, 360, f 26;
+#X text 545 398 Since the input is an analog stick \, we have to make
+sure the x \, y and z values to input in the virtual space is more
+steady. So we made a margin of error for the input values between -5
+and 5, f 26;
+#X obj 755 883 hsl 300 70 -360 360 0 0 empty empty empty -2 -8 0 10
+#fcfcfc #000000 #000000 0 1;
+#X floatatom 752 1414 5 0 0 0 - - - 0;
+#X text 868 853 forward;
+#X text 1071 908 right;
+#X text 701 909 left;
+#X text 861 961 (backward);
+#X text 784 994 visual representation of the direction of your head
+(roughly), f 37;
+#X text 27 53 Connect the controller to the computer first. (Note:
+our connection was USB port 15 \, but it might be different for each
+computer \; therefore you can check your port with, f 36;
+#X obj 752 586 / 30;
+#X text 629 256 uses right analog stick to "move" \, left analog stick
+(horizontal only) to turn your head, f 59;
+#X text 280 859 Speaker 1 location, f 10;
+#X text 567 857 Speaker 2 location, f 11;
+#X text 568 1354 Speaker 3 location, f 9;
+#X text 278 1352 Speaker 4 location, f 10;
+#X text 379 162 (need to download the hidio external (for Windows)
+or the hid external (for Mac));
+#X obj 752 1343 trigger bang float;
+#X obj 752 1380 int;
+#X text 931 18 Order of instructions:;
+#X text 933 71 2 Once done \, press X to activate analog buttons \,
+and press circle to reset position within the virtual space.;
+#X text 933 102 3 Have fun exploring with the left and right analog
+sticks!;
+#X obj 350 59 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X text 318 19 Loads the PS4 controller when clicked. Do this after
+determining which USB port to open.;
+#X text 933 39 1 Plug in PS4 controller and decide the USB port number
+\, then activate it with the bang.;
+#X text 904 1335 This is done so the number is converted to integers
+to avoid packet loss when sending the number to Max/MSP. This is triggered
+every time the number for Z changes., f 48;
+#X text 476 1420 send the x \, y \, and z values to Max/MSP for the
+sounds to activate, f 33;
+#X msg 349 130 open 15;
+#X connect 0 0 2 0;
+#X connect 1 0 0 0;
+#X connect 2 0 3 0;
+#X connect 3 0 44 0;
+#X connect 3 1 68 0;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X connect 6 0 9 0;
+#X connect 7 0 64 0;
+#X connect 8 0 7 0;
+#X connect 9 0 10 0;
+#X connect 9 1 7 0;
+#X connect 10 0 7 0;
+#X connect 10 1 8 0;
+#X connect 11 0 19 0;
+#X connect 12 0 13 0;
+#X connect 13 0 11 0;
+#X connect 13 0 4 0;
+#X connect 13 0 70 0;
+#X connect 14 0 17 0;
+#X connect 15 0 65 0;
+#X connect 16 0 15 0;
+#X connect 17 0 18 0;
+#X connect 17 1 15 0;
+#X connect 18 0 15 0;
+#X connect 18 1 16 0;
+#X connect 19 0 14 0;
+#X connect 20 0 11 1;
+#X connect 21 0 4 1;
+#X connect 22 0 23 0;
+#X connect 23 0 34 0;
+#X connect 24 0 25 0;
+#X connect 25 0 36 0;
+#X connect 28 0 41 0;
+#X connect 30 0 28 0;
+#X connect 32 0 33 0;
+#X connect 33 0 28 0;
+#X connect 33 1 28 1;
+#X connect 34 1 35 0;
+#X connect 35 0 22 1;
+#X connect 35 0 30 0;
+#X connect 36 1 37 0;
+#X connect 37 0 24 1;
+#X connect 37 0 32 0;
+#X connect 38 0 39 0;
+#X connect 38 1 40 0;
+#X connect 39 0 62 0;
+#X connect 40 0 61 0;
+#X connect 41 0 38 0;
+#X connect 44 0 42 0;
+#X connect 44 1 45 0;
+#X connect 44 2 48 0;
+#X connect 44 3 43 0;
+#X connect 45 0 46 0;
+#X connect 46 0 12 0;
+#X connect 47 0 1 0;
+#X connect 48 0 49 0;
+#X connect 49 0 23 0;
+#X connect 49 0 25 0;
+#X connect 49 0 78 0;
+#X connect 54 0 57 0;
+#X connect 55 0 56 0;
+#X connect 57 0 58 0;
+#X connect 58 0 56 0;
+#X connect 59 0 63 0;
+#X connect 60 0 54 0;
+#X connect 61 0 54 0;
+#X connect 62 0 54 0;
+#X connect 63 0 56 0;
+#X connect 64 0 24 0;
+#X connect 65 0 22 0;
+#X connect 67 0 0 0;
+#X connect 68 0 20 0;
+#X connect 68 1 21 0;
+#X connect 68 2 69 0;
+#X connect 69 0 70 1;
+#X connect 70 0 76 0;
+#X connect 71 0 74 0;
+#X connect 72 0 94 0;
+#X connect 73 0 72 0;
+#X connect 74 0 75 0;
+#X connect 74 1 72 0;
+#X connect 75 0 72 0;
+#X connect 75 1 73 0;
+#X connect 76 0 71 0;
+#X connect 77 0 78 0;
+#X connect 78 0 82 0;
+#X connect 80 0 86 0;
+#X connect 82 1 83 0;
+#X connect 83 0 77 1;
+#X connect 83 0 80 0;
+#X connect 86 0 101 0;
+#X connect 87 0 60 0;
+#X connect 94 0 77 0;
+#X connect 101 0 102 0;
+#X connect 101 1 102 1;
+#X connect 102 0 87 0;
+#X connect 106 0 47 0;
+#X connect 106 0 111 0;
+#X connect 111 0 0 0;
