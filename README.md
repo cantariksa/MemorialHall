@@ -1,4 +1,4 @@
-# MemorialHall
+# Memorial Hall
 
 This is a Pure Data "Interactive Dialogue" project where there is a virtual memorial hall - as you move through the space, the background sound changes in pitch. Different music excerpts are floating around this hall. This was simulated using four actual speakers and two phantom speakers. Within this seemingly infinite memorial hall, the audience can explore excerpts from different pieces. The user is exploring the virtual sound space using a game controller. This project is intended to be a form of liminal soundscape/space.
 
